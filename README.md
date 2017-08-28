@@ -156,5 +156,5 @@ Clone the repository or download and unzip the contents of this repository.
 ##### Windows
   1. I don't use Windows but I'm sure [this guide](http://pythoncentral.io/execute-python-script-file-shell/) should help out.
   
-#### Final
+### Final
 That's all it is. Thanks for taking a look at this.
