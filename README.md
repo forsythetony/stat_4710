@@ -20,43 +20,43 @@ First a letter mapping is defined that maps each allowable character to a list t
 
 ```Python
 letter_mapping = 	{
-						'A' : [ 'A', '4' ],
-						'B' : [ 'B' , '8' ],
-						'C' : [ 'C' ],
-						'D' : [ 'D' ],
-						'E' : [ 'E' , '3' ],
-						'F' : [ 'F' ],
-						'G' : [ 'G' , '6' ],
-						'H' : [ 'H' ],
-						'I' : [ 'I', '1' ],
-						'J' : [ 'J' ],
-						'K' : [ 'K' ],
-						'L' : [ 'L' ],
-						'M' : [ 'M' ],
-						'N' : [ 'N' ],
-						'O' : [ 'O', '0' ],
-						'P' : [ 'P' ],
-						'Q' : [ 'Q' ],
-						'R' : [ 'R' ],
-						'S' : [ 'S' , '5' ],
-						'T' : [ 'T' ],
-						'U' : [ 'U' ],
-						'V' : [ 'V' ],
-						'W' : [ 'W' ],
-						'X' : [ 'X' ],
-						'Y' : [ 'Y' ],
-						'Z' : [ 'Z' , '2' ],
-						'0' : [ '0' , 'O' ],
-						'1' : [ '1' , 'I' ],
-						'2' : [ '2' , 'Z' ],
-						'3' : [ '3' , 'E' ],
-						'4' : [ '4' , 'A' ],
-						'5' : [ '5' , 'S' ],
-						'6' : [ '6' , 'G' ],
-						'7' : [ '7' ],
-						'8' : [ '8' , 'B' ],
-						'9' : [ '9' ]
-					}
+			'A' : [ 'A', '4' ],
+			'B' : [ 'B' , '8' ],
+			'C' : [ 'C' ],
+			'D' : [ 'D' ],
+			'E' : [ 'E' , '3' ],
+			'F' : [ 'F' ],
+			'G' : [ 'G' , '6' ],
+			'H' : [ 'H' ],
+			'I' : [ 'I', '1' ],
+			'J' : [ 'J' ],
+			'K' : [ 'K' ],
+			'L' : [ 'L' ],
+			'M' : [ 'M' ],
+			'N' : [ 'N' ],
+			'O' : [ 'O', '0' ],
+			'P' : [ 'P' ],
+			'Q' : [ 'Q' ],
+			'R' : [ 'R' ],
+			'S' : [ 'S' , '5' ],
+			'T' : [ 'T' ],
+			'U' : [ 'U' ],
+			'V' : [ 'V' ],
+			'W' : [ 'W' ],
+			'X' : [ 'X' ],
+			'Y' : [ 'Y' ],
+			'Z' : [ 'Z' , '2' ],
+			'0' : [ '0' , 'O' ],
+			'1' : [ '1' , 'I' ],
+			'2' : [ '2' , 'Z' ],
+			'3' : [ '3' , 'E' ],
+			'4' : [ '4' , 'A' ],
+			'5' : [ '5' , 'S' ],
+			'6' : [ '6' , 'G' ],
+			'7' : [ '7' ],
+			'8' : [ '8' , 'B' ],
+			'9' : [ '9' ]
+		}
 ```
 
 The program will iterate through the list of words that are not allowed. In each iteration it will do the following. 
@@ -74,3 +74,33 @@ def ways_to_write( ambiguousString ):
 
 	return total_ways
   ```
+  
+  2. After determining the total ways that we can write a word using letter substitution then we have to find how many variations there are if we modify the position of the string. This is done by passing the string, the total ways to write that we just calculated, and the number of available characters to the function `count_total_possibilties( ambiguous_str , total_ways, total_character_possibilities ):`. First the function checks to see if the word is exactly the length of the maximum allowed length of license plate strings (in this case 6). If it is then there is only one way. If not it will calculate how many remaining spots there are. The number of allowable ways to write this string on a license plate is equal to the number of remaining spots + 1 multiplied by both the total ways to write the original string as found by the preivous function and the number of ways to fill the open spots ( 36 to the power of the remaining spots). I'm still unsure if this is correct however and some checking would be appreciated. This function is shown below.  
+  
+  ```Python
+  def count_total_possibilties( ambiguous_str , total_ways, total_character_possibilities ):
+
+	if len(ambiguous_str) == LICENSE_PLATE_LENGTH:
+		return total_ways
+
+
+	remaining_spots = (LICENSE_PLATE_LENGTH - len( ambiguous_str) )
+
+	different_positional_ways = remaining_spots + 1
+
+
+	# 	FIXME:
+	#		So this is the math that I'm not too sure about. Basically
+	#		I get the number of different positional variations. For example
+	#		if we have 6 total spaces and the word is 5 letters long there are
+	#		two different ways to make that. One with a random character at the
+	#		beginning and one with a random character at the end. Here I take
+	#		this value and multiply it by how much variation there can be in the
+	#		open spots which would be ( 36 * 'number of random open spots to fill' ).
+	#		Is this right?
+
+	return (total_ways * different_positional_ways * pow( total_character_possibilities, remaining_spots ))
+```
+
+3. After finding the total number of ways to write this on a license plate it will print a censored version of this string and the number of ways it can be written. It will then add this number to a variable and move on to the next string in the list. At the end it will display this value as well as all possible allowable values (this is found by taking the number of allowable characters, 36, to the power of the length of the license plate 6).
+
