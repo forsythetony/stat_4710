@@ -134,3 +134,27 @@ There are 7,776 different ways to put 'B%*$' on a license plate.
 
 Looks like there are 33,639,264 bad license plates in the sample space of 2,176,782,336
 ```
+
+
+### Running It Yourself
+
+#### Prerequisites
+- Python version >= 2.7
+  - If you need to install Python and have a windows machine follow [this guide](https://www.howtogeek.com/197947/how-to-install-python-on-windows/). If you have a Mac follow [this one](http://www.pyladies.com/blog/Get-Your-Mac-Ready-for-Python-Programming/)
+- Git version >= 2.0 (optional)
+  - This makes downloading the files slightly easier (I think). An install guide can be found [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+
+#### Running
+##### All
+Clone the repository or download and unzip the contents of this repository.
+
+
+##### Mac
+  1. In terminal navigate to where you downloaded the files.
+  2. Here run the command `python license_plate_program.py`
+  
+##### Windows
+  1. I don't use Windows but I'm sure [this guide](http://pythoncentral.io/execute-python-script-file-shell/) should help out.
+  
+#### Final
+That's all it is. Thanks for taking a look at this.
