@@ -104,3 +104,33 @@ def ways_to_write( ambiguousString ):
 
 3. After finding the total number of ways to write this on a license plate it will print a censored version of this string and the number of ways it can be written. It will then add this number to a variable and move on to the next string in the list. At the end it will display this value as well as all possible allowable values (this is found by taking the number of allowable characters, 36, to the power of the length of the license plate 6).
 
+### Output
+
+Using the following as the input array
+```Python
+some_bad_words =    [
+                        "this",
+                        "is",
+                        "just",
+                        "list",
+                        "example",
+                        "words",
+                        "nonsense",
+                        "apple"
+                    ]
+```
+
+you will get the following as output
+
+
+```
+There are 15,552 different ways to put 'T#*$' on a license plate.
+There are 33,592,320 different ways to put 'I#' on a license plate.
+There are 7,776 different ways to put 'J#%#' on a license plate.
+There are 15,552 different ways to put 'L##@' on a license plate.
+The string 'E&*&@%*' is too long to put on a license plate you dolt!
+There are 288 different ways to put 'W***$' on a license plate.
+There are 7,776 different ways to put 'B%*$' on a license plate.
+
+Looks like there are 33,639,264 bad license plates in the sample space of 2,176,782,336
+```
