@@ -1,7 +1,8 @@
 # stat_4710
 This is a collection of random scripts that I wrote to test out various concepts in my STAT 4710 class at the University of Missouri - Columbia. Below you'll find a detailed description of each script.
 
-
+#### Disclaimer
+If the formatting or whatever else in my Python code makes you cringe I'm sorry. I'm brand new to Python and will probably come back and fix things up once I know better. If you have any suggestions or admonitions send me an email at arfv2b@mail.missouri.edu
 
 ## License Plate Program
 
@@ -15,7 +16,48 @@ To find the total number of allowable license plates given the following paramet
 
 ### How it Works
 
-First a letter mapping is defined that maps each allowable character to a list that includes that letter along with any allowable character that could possibly be used to substitute for it. 
+First a letter mapping is defined that maps each allowable character to a list that includes that letter along with any allowable character that could possibly be used to substitute for it. The letter mapping is shown below:
+
+```Python
+letter_mapping = 	{
+						'A' : [ 'A', '4' ],
+						'B' : [ 'B' , '8' ],
+						'C' : [ 'C' ],
+						'D' : [ 'D' ],
+						'E' : [ 'E' , '3' ],
+						'F' : [ 'F' ],
+						'G' : [ 'G' , '6' ],
+						'H' : [ 'H' ],
+						'I' : [ 'I', '1' ],
+						'J' : [ 'J' ],
+						'K' : [ 'K' ],
+						'L' : [ 'L' ],
+						'M' : [ 'M' ],
+						'N' : [ 'N' ],
+						'O' : [ 'O', '0' ],
+						'P' : [ 'P' ],
+						'Q' : [ 'Q' ],
+						'R' : [ 'R' ],
+						'S' : [ 'S' , '5' ],
+						'T' : [ 'T' ],
+						'U' : [ 'U' ],
+						'V' : [ 'V' ],
+						'W' : [ 'W' ],
+						'X' : [ 'X' ],
+						'Y' : [ 'Y' ],
+						'Z' : [ 'Z' , '2' ],
+						'0' : [ '0' , 'O' ],
+						'1' : [ '1' , 'I' ],
+						'2' : [ '2' , 'Z' ],
+						'3' : [ '3' , 'E' ],
+						'4' : [ '4' , 'A' ],
+						'5' : [ '5' , 'S' ],
+						'6' : [ '6' , 'G' ],
+						'7' : [ '7' ],
+						'8' : [ '8' , 'B' ],
+						'9' : [ '9' ]
+					}
+```
 
 The program will iterate through the list of words that are not allowed. In each iteration it will do the following. 
 
